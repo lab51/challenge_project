@@ -1,0 +1,96 @@
+html{
+height: 100%;
+}
+
+body {
+    /* The html and body elements cannot have any padding or margin. */
+    background-image: url("../img/crossword.png");
+    background-repeat: repeat;
+    font-family:'Rokkitt', serif;
+    /*position:absolute; top:0; bottom:0; right:0; left:0;*/
+    min-height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family:'Rokkitt', serif;
+}
+
+.borders-all{
+    border-right: 1px solid #dddddd;
+}
+
+.main-content{
+    height:80vh;
+}
+
+.row{
+    background-color: #fff;
+}
+
+.white-background{
+    background-color: #ffffff;
+}
+
+.foot{
+    margin: 0 auto;
+    max-width: 62.5rem;
+    width: 100%;
+    background-color: #fff;
+}
+
+.top-bar, .right{
+    /*background-color: steelblue;*/
+    background-color: #333;
+}
+
+.top-custom {
+    margin: 0 auto;
+    max-width: 62.5rem;
+    width: 100%;
+}
+
+.breadcrumbs {
+    margin-top:10px;
+}
+
+.logo{
+    font-family:'Rokkitt', serif;font-size:18px;
+    color: #F77219;
+    margin-left: 16px;
+    float: left;
+}
+
+.log-status {
+    color: #777777;
+    float: right;
+    width: 40%;
+}
+
+.icon-bar.five-up .item {
+    height: 100%;
+    width: 10%;
+    padding: 0;
+}
+
+.icon-bar{
+    display: inline;
+}
+
+.side{
+    margin-top: 20px;
+}
+
+.icon-top{
+    color:#fff;
+    font-size: 10px;
+    float: right;
+}
+
+.icon-bar > * i {
+    font-size:16px;
+}
+
+.f-dropdown{
+    padding:10px;
+    max-width: 300px;
+}

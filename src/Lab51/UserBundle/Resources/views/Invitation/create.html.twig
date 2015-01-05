@@ -1,0 +1,40 @@
+{% extends 'foundation_base.html.twig' %}
+{% block body %}
+    <div class="large-9 columns borders-all">
+
+        <h3>Send invitation to friend</h3>
+        <p>We'd love to hear from you. You can either reach out to us as a whole and one of our awesome team members will get back to you, or if you have a specific question reach out to one of our staff. We love getting email all day <em>all day</em>.</p>
+        <div class="section-container tabs" data-section>
+            <section class="section">
+                <div class="content" data-slug="panel1">
+
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+
+                    <div class="row collapse">
+                        <div class="large-2 columns">
+                            <label class="inline"> Your friends email</label>
+                        </div>
+                        <div class="large-10 columns">
+                            {{ form_widget(form.email) }}
+                        </div>
+                    </div>
+                    <div class="row collapse">
+                        <div class="large-2 columns">
+                            <label class="inline"> ... and name</label>
+                        </div>
+                        <div class="large-10 columns">
+                            {{ form_widget(form.friends_name) }}
+                        </div>
+                    </div>
+
+                    {{ form_widget(form.save) }}
+                    {{ form_end(form) }}
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+
+{% endblock %}

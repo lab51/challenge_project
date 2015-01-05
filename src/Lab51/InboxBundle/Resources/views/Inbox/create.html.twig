@@ -1,0 +1,36 @@
+{% extends 'foundation_base.html.twig' %}
+{% block body %}
+    <div class="large-9 columns borders-all">
+
+        <h3>Create new message</h3>
+        <div class="section-container tabs" data-section>
+            <section class="section">
+                <div class="content" data-slug="panel1">
+
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+
+                    <div class="row collapse">
+
+                     {{ form_widget(form.content) }}
+                     <select id="message_user" name="message[user]">
+                         {% for friend in friends %}
+                         <option value="{{ friend.id }}">{{ friend.name }}</option>
+                         {% endfor %}
+                     </select>
+                    </div>
+                    {{ form_widget(form.save) }}
+                    {{ form_end(form) }}
+                </div>
+            </section>
+            
+            <a data-dropdown="drop_friends" aria-controls="drop_friends" aria-expanded="false">my friends list</a>
+            <ul id="drop_friends" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+            {% for friend in friends %}
+            <li onclick="selectFriend({{ friend.id }}) ">{{ friend.name }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

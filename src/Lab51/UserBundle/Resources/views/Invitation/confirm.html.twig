@@ -1,0 +1,52 @@
+{% extends 'foundation_base.html.twig' %}
+{% block body %}
+    <div class="large-9 columns borders-all">
+
+        <h3>{{ name }} - confirm your participation in challenge</h3>
+        <p>
+        To participate in challenge, you have to open an account. It is free and it takes less than a 30 seconds.
+        Then, after loggin in, you will see this challenge on your list.
+        
+        Remember, you should register with email {{ email }}, because this address was invited to challenge.
+		</p>
+        <div class="section-container tabs" data-section>
+            <section class="section">
+                <div class="content" data-slug="panel1">
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+
+                    <div class="row collapse">
+                        <div class="large-2 columns">
+                            <label class="inline"> Your Name</label>
+                        </div>
+                        <div class="large-10 columns">
+                            {{ form_widget(form.name) }}
+                        </div>
+                    </div>
+
+                    <div class="row collapse">
+                        <div class="large-2 columns">
+                            <label class="inline"> Your Email</label>
+                        </div>
+                        <div class="large-10 columns">
+                            {{ form_widget(form.email) }}
+                        </div>
+                    </div>
+                    <div class="row collapse">
+                        <div class="large-2 columns">
+                            <label class="inline"> Your password</label>
+                        </div>
+                        <div class="large-10 columns">
+                            {{ form_widget(form.password) }}
+                        </div>
+                    </div>
+                    {{ form_widget(form.save) }}
+                    {{ form_end(form) }}
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+
+{% endblock %}

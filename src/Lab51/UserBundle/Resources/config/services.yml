@@ -1,0 +1,8 @@
+services:
+#    lab51_user.example:
+#        class: Lab51\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+     status.controller:
+        class: AppBundle\Controller\StatusController
+        arguments:
+        - @service_container

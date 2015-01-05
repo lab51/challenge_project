@@ -1,0 +1,21 @@
+lab51_inbox_homepage:
+    path:     /inbox
+    defaults: { _controller: Lab51InboxBundle:Inbox:index }
+
+lab51_inbox_show_message:
+    path:     /message/show/{message_id}
+    defaults: { _controller: Lab51InboxBundle:Inbox:show }
+
+lab51_inbox_create_message:
+    path:     /message/create
+    defaults: { _controller: Lab51InboxBundle:Inbox:create }
+
+lab51_inbox_process_message:
+    path:     /message/process
+    defaults: { _controller: Lab51InboxBundle:Inbox:process }
+    requirements:
+            _method:  POST
+            
+lab51_inbox_delete_message:
+    path:     /message/delete/{message_id}
+    defaults: { _controller: Lab51InboxBundle:Inbox:delete }

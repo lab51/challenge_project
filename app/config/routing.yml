@@ -1,0 +1,15 @@
+lab51_inbox:
+    resource: "@Lab51InboxBundle/Resources/config/routing.yml"
+    prefix:   /
+
+lab51_user:
+    resource: "@Lab51UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+lab51_challenge:
+    resource: "@Lab51ChallengeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation

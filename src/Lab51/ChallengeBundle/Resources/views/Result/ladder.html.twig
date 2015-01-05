@@ -1,0 +1,54 @@
+{% extends 'foundation_base.html.twig' %}
+{% block body %}
+    <div class="large-9 columns borders-all">
+        <ul class="breadcrumbs">
+            <li><a href="/">home</a></li>
+            <li><a href="{{ path('lab51_challenge_homepage') }}">my challenges</a></li>
+            <li class="current">{{ challenge.challengeName }} ladder</li>
+        </ul>
+        <h3>Ladder for challenge: {{ challenge.challengeName }}</h3>
+        <p>{{ challenge.challengeDescription }}</p>
+        <p>
+            {% if auth==1 %}
+                options:
+                <a href="{{ path('lab51_challenge_delete', {'challenge_id': challenge.id}) }}">delete</a> |
+                <a href="{{ path('lab51_challenge_edit', {'challenge_id': challenge.id}) }}">edit</a>
+            {% endif %}
+        </p>
+
+        <p><a href="{{ path('lab51_result_index', {'challenge_id': challenge.id}) }}">show only my results</a></p>
+        <div class="section-container tabs" data-section>
+            <section class="section">
+                <div class="content" data-slug="panel1">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th width="200">result</th>
+                            <th width="200">date</th>
+                            <th width="200">participant</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for res in results %}
+                            <tr>
+                                <td>{{ res.result }}</td>
+                                <td>{{ res.date.date|date("m/d/Y") }}</td>
+                                <td>{{ res.user.name }}</td>
+                            </tr>
+                        {% else %}
+                            No results found
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+

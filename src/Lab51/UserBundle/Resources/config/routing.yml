@@ -1,0 +1,48 @@
+lab51_user_homepage:
+    path:     /user
+    defaults: { _controller: Lab51UserBundle:User:index }
+
+lab51_user_login:
+    path:     /login
+    defaults: { _controller: Lab51UserBundle:User:login }
+
+lab51_user_logout:
+    path:     /logout
+    defaults: { _controller: Lab51UserBundle:User:logout }
+
+lab51_user_account:
+    path:     /account
+    defaults: { _controller: Lab51UserBundle:User:account }
+
+lab51_user_register:
+    path:     /register
+    defaults: { _controller: Lab51UserBundle:User:register }
+
+lab51_user_register_process:
+    path:     /register-process
+    defaults: { _controller: Lab51UserBundle:User:registerProcess }
+
+lab51_friend_invite:
+    path:     /invite-friend
+    defaults: { _controller: Lab51UserBundle:Invitation:inviteFriend }
+    requirements:
+            _method:  POST
+
+lab51_friend_from_list_invite:
+    path:     /invite-friend-from-list
+    defaults: { _controller: Lab51UserBundle:Invitation:inviteFriendFromList }
+    requirements:
+            _method:  POST
+
+lab51_invitation_confirm:
+    path:     /confirm-invitation
+    defaults: { _controller: Lab51UserBundle:Invitation:confirmInvitation }
+
+lab51_invitation_from_list_confirm:
+    path:     /accept-challenge
+    defaults: { _controller: Lab51UserBundle:Invitation:acceptChallenge }
+            
+lab51_get_test:
+    path:     /test
+    defaults: { _controller: Lab51UserBundle:Invitation:test }
+

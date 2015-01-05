@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Library/WebServer/Documents/karo/src/Lab51/ChallengeBundle/Resources/config/routing.yml</file>
+            <file>file:/Library/WebServer/Documents/karo/src/Lab51/UserBundle/Controller/InvitationController.php</file>
+            <file>file:/Library/WebServer/Documents/karo/src/Lab51/InboxBundle/Controller/InboxController.php</file>
+            <file>file:/Library/WebServer/Documents/karo/src/Lab51/ChallengeBundle/Controller/ResultController.php</file>
+            <file>file:/Library/WebServer/Documents/karo/src/Lab51/ChallengeBundle/Controller/ChallengeController.php</file>
+            <file>file:/Library/WebServer/Documents/karo/src/Lab51/ChallengeBundle/Resources/views/Challenge/index.html.twig</file>
+            <file>file:/Library/WebServer/Documents/karo/src/Lab51/UserBundle/Resources/config/services.yml</file>
+            <file>file:/Library/WebServer/Documents/karo/src/Lab51/UserBundle/Resources/config/routing.yml</file>
+        </group>
+    </open-files>
+</project-private>

@@ -1,0 +1,17 @@
+{% extends 'foundation_base.html.twig' %}
+{% block body %}
+    <div class="large-9 columns borders-all">
+        <ul class="breadcrumbs">
+            <li><a href="/">home</a></li>
+            <li><a href="{{ path('lab51_inbox_homepage') }}">inbox</a></li>
+            <li class="current">show message</li>
+        </ul>
+        <h3>from {{ user.name }}, {{ msg.date.date|date("m/d/Y")}} </h3>
+        <p>
+            {{ msg.content}}
+        <p>
+    </div>
+
+
+{% endblock %}
+

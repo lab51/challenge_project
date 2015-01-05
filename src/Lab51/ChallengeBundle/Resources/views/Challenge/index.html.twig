@@ -1,0 +1,179 @@
+{% extends 'foundation_base.html.twig' %}
+{% block body %}
+    <div class="large-9 columns borders-all">
+        <ul class="breadcrumbs">
+            <li><a href="/">home</a></li>
+            <li class="current">my challenges</li>
+        </ul>
+        <h3>{{ user.name }} challenges
+        </h3>
+        <p>We'd love to hear from you. You can either reach out to us as a whole and one of our awesome team members will get back to you, or if you have a specific question reach out to one of our staff. We love getting email all day <em>all day</em>.</p>
+        <div class="section-container tabs" data-section>
+            <section class="section">
+                <div class="content" data-slug="panel1">
+                    <script>
+                        function setChallenge(id) {
+                            document.getElementById("result_challenge_id").value = id;
+                        }
+
+                        function myFunction(id) {
+                            document.getElementById("invitation_challenge_id").value = id;
+                        }
+                        function myTest() {
+                            document.getElementById("msgs").innerHTML = "invitation was sent";
+                        }
+                        function inviteFriend(friend_id, challenge_id, friend_name, user_id) {
+                            /*document.getElementById("msgs").innerHTML = friend_id + " " + challenge_id;*/
+                            var request = $.ajax({
+                                type: "POST",
+                                data: {
+                                    friend_id: friend_id,
+                                    challenge_id: challenge_id,
+                                    user_id: user_id
+                                },
+                                url: "{{ path('lab51_friend_from_list_invite') }}",
+                                cache: false,
+                                success: function(){
+                                   /* document.location.reload(false);*/
+                                    $("#msgs").html("invitation sent to " + friend_name);
+                                    /*document.getElementById("msgs").value = "invitation was sent";*/
+                                }
+                            });
+                        }
+                        function addResult() {
+                            var request = $.ajax({
+                                type: "POST",
+                                data: {
+                                    result: $('#result_result').val(),
+                                    challenge_id: $('#result_challenge_id').val()
+                                },
+                                url: "{{ path('lab51_result_ajax_add') }}",
+                                cache: false,
+                                success: function(){
+                                    $("#msgs").html("result added");
+                                }
+                            });
+                        }
+
+                    </script>
+                    <script>
+                        function sendInv() {
+
+                            var request = $.ajax({
+                                type: "POST",
+                                data: {
+                                    friends_name: $('#invitation_friends_name').val(),
+                                    email: $('#invitation_email').val(),
+                                    challenge_id: $('#invitation_challenge_id').val()
+                                },
+                                url: "{{ path('lab51_friend_invite') }}",
+                                cache: false,
+                                success: function(){
+                                   /* document.location.reload(false);*/
+                                    $("#msgs").html("invitation sent to "+$('#invitation_friends_name').val());
+                                    /*document.getElementById("msgs").value = "invitation was sent";*/
+                                }
+                            });
+
+                        /*    request.done(function() {
+                                $("#msgs").html("jazda");
+
+                            });
+                        */
+                        }
+                    </script>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th width="200">challenge</th>
+                            <th width="150">last result</th>
+                            <th width="150">add result</th>
+                            <th width="150">invite friend</th>
+                            <th width="150">options for challenge</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for challenge in challenges %}
+                        <tr>
+                            <td><a href="{{ path('lab51_result_index', {'challenge_id': challenge.id}) }}">{{ challenge.challengeName }}</a></td>
+                            <td>123</td>
+                            <td>
+                            <a data-dropdown="drop_result" aria-controls="drop_result" aria-expanded="false" onclick="setChallenge({{ challenge.id }})">add result</a>
+                           
+                            </td>
+                            <td><a href="{{ path('lab51_friend_invite', {'challenge_id': challenge.id}) }}">invite</a>
+                                <a data-dropdown="drop_new" aria-controls="drop_new" aria-expanded="false" onclick="myFunction({{ challenge.id }})">new friend</a>
+
+                                <a data-dropdown="drop{{ challenge.id }}" aria-controls="drop{{ challenge.id }}" aria-expanded="false">from my list</a>
+                            <ul id="drop{{ challenge.id }}" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+                                {% for friend in friends %}
+                                    <li onclick="inviteFriend({{ friend.id }}, {{ challenge.id }}, '{{ friend.name }}', {{ challenge.user.id }}) ">{{ friend.name }}</li>
+                                {% endfor %}
+
+                            </ul></td>
+                            <td><a href="{{ path('lab51_challenge_delete', {'challenge_id': challenge.id}) }}">delete</a> |
+                            <a href="{{ path('lab51_challenge_edit', {'challenge_id': challenge.id}) }}">edit</a></td>
+                        </tr>
+                        {% else %}
+                            <li>No challenges found</li>
+                        {% endfor %}
+                        <div id="drop_new" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+                            {{ form_start(form) }}
+                            {{ form_errors(form) }}
+
+                            <div class="row collapse">
+                                <div class="large-4 columns">
+                                    <label class="inline"> Your friends email</label>
+                                </div>
+                                <div class="large-8 columns">
+                                    {{ form_widget(form.email) }}
+                                </div>
+                            </div>
+                            <div class="row collapse">
+                                <div class="large-4 columns">
+                                    <label class="inline"> ... and name</label>
+                                </div>
+                                <div class="large-8 columns">
+                                    {{ form_widget(form.friends_name) }}
+                                </div>
+                            </div>
+                            {{ form_widget(form.challenge_id) }}
+                            {{ form_widget(form.save) }}
+                            {{ form_end(form) }}
+
+                        </div>
+                                    <div id="drop_result" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+                            {{ form_start(form_result) }}
+                            {{ form_errors(form_result) }}
+
+                            <div class="row collapse">
+                                <div class="large-4 columns">
+                                    <label class="inline"> Your result</label>
+                                </div>
+                                <div class="large-8 columns">
+                                    {{ form_widget(form_result.result) }}
+                                </div>
+                            </div>
+                            {{ form_widget(form_result.challenge_id) }}
+                            {{ form_widget(form_result.save) }}
+                            {{ form_end(form_result) }}
+
+                        </div>
+                        </tbody>
+                    </table>
+                    <a href="{{ path('lab51_challenge_create') }}">create new challenge</a>
+
+                    {{ dump(friends) }}
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
+

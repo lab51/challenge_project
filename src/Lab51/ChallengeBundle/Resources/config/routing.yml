@@ -1,0 +1,41 @@
+lab51_challenge_homepage:
+    path:     /my_challenges
+    defaults: { _controller: Lab51ChallengeBundle:Challenge:index }
+
+lab51_challenge_create:
+    path:     /my_challenges/create
+    defaults: { _controller: Lab51ChallengeBundle:Challenge:create }
+
+lab51_challenge_edit:
+    path:     /my_challenges/edit/{challenge_id}
+    defaults: { _controller: Lab51ChallengeBundle:Challenge:edit }
+
+lab51_challenge_delete:
+    path:     /my_challenges/delete/{challenge_id}
+    defaults: { _controller: Lab51ChallengeBundle:Challenge:delete }
+
+lab51_result_index:
+    path:     /my_results/{challenge_id}
+    defaults: { _controller: Lab51ChallengeBundle:Result:index }
+
+lab51_result_create:
+    path:     /add_result/{challenge_id}
+    defaults: { _controller: Lab51ChallengeBundle:Result:createResult }
+
+lab51_result_edit:
+    path:     /edit_result/{result_id}
+    defaults: { _controller: Lab51ChallengeBundle:Result:editResult }
+
+lab51_result_delete:
+    path:     /delete_result/{result_id}
+    defaults: { _controller: Lab51ChallengeBundle:Result:deleteResult }
+    
+lab51_result_ajax_add:
+    path:     /add-ajax-result
+    defaults: { _controller: Lab51ChallengeBundle:Result:createAjaxResult }
+    requirements:
+            _method:  POST
+
+lab51_ladder_index:
+    path:     /ladder/{challenge_id}
+    defaults: { _controller: Lab51ChallengeBundle:Result:ladder }

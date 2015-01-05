@@ -1,0 +1,4 @@
+services:
+#    lab51_challenge.example:
+#        class: Lab51\ChallengeBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
